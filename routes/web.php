@@ -28,4 +28,11 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+Route::middleware('auth', 'verified')
+->prefix("admin")// porzione di uri che verrà inserita prima di ogni rotta
+->name("admin.")// porzione di testo inserita prima del name di ogni rotta
+->group(function(){
+    Route::resource('/Project', ProjectController::class);
+});
+
 require __DIR__.'/auth.php';
