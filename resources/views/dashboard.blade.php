@@ -14,8 +14,16 @@
                     </div>
                     @endif
 
-                    {{ __('You are logged in!') }}
                 </div>
+                
+                <div>
+                    <h3 class="text-center">List Projects</h3>
+                    <div class="text-center">
+                        <a href="{{route('admin.projects.index')}}" class="btn btn-primary">Go</a>
+
+                    </div>
+                </div>
+
             </div>
         </div>
     </div>

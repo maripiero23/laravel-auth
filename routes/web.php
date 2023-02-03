@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Admin\ProjectController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +34,7 @@ Route::middleware('auth', 'verified')
 ->prefix("admin")// porzione di uri che verrà inserita prima di ogni rotta
 ->name("admin.")// porzione di testo inserita prima del name di ogni rotta
 ->group(function(){
-    Route::resource('/Project', ProjectController::class);
+    Route::resource('/projects', ProjectController::class);
 });
 
 require __DIR__.'/auth.php';
