@@ -4,30 +4,18 @@
 <div class="text-center my-3">
     <h1 class="text-dark">Pogetto #{{ $project->id }}</h1>
 </div>
-<div class="card my-3">
+<div class="card" style="width: 18rem;">
+    <img src="{{$project->$cover_img}}" class="card-img-top" alt="...">
     <div class="card-body">
-        <table class="table">
-        <thead>
-            <tr>
-            <th>ID</th>
-            <th>Titolo</th>
-            <th>Descrizione</th>
-            <th>Thumb</th>
-            <th>GitHub</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>{{ $project->id }}</td>
-                <td>{{ $project->name }}</td>
-                <td>{{ $project->description }}</td>
-                <td>{{ $project->cover_img }}</td>
-                <td>{{ $project->github_link }}</td>
-            </tr>
-        </tbody>
-        </table>
+      <h5 class="card-title">{{$project->$name}}</h5>
+      <p class="card-text">{{$project->$description}}</p>
+      <p class="card-text">{{$project->$user_id}}</p>
+      <p class="card-text">{{$project->$github_link}}</p>
+
+
+      <a href="#" class="btn btn-primary">Go somewhere</a>
     </div>
-</div>
+  </div>
 <div class="text-center mt-3">
     <a href="{{route('admin.projects.index')}}"><button class="btn btn-secondary fw-semibold">All Projects</button></a>
 </div>

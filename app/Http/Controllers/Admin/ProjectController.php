@@ -45,9 +45,10 @@ class ProjectController extends Controller
         $data= $request->all();
 
         //Nella tabella mi creo una nuova riga con i dati che sono appena rrivati dal creat/form
-        $projects= Project::create($data);
+        $project= Project::create($data);
+        $project->save();
 
-        return redirect()->route("admin.projects.show", $projects->id);
+        return redirect()->route("admin.projects.show", $project->id);
     }
 
     /**
@@ -60,7 +61,8 @@ class ProjectController extends Controller
     {
         $project= Project::findOrFail($id);
 
-        return view("admin.projects.show", compact($project));
+        return view("admin.projects.show", [
+            "project"=>$project]);
     }
 
     /**

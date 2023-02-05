@@ -26,23 +26,23 @@
                     @csrf
         
                     <label class="form-label">Title: </label>
-                    <input type="text" name="title" class="form-control">
+                    <input type="text" name="name" class="form-control">
         
                     <label class="form-label">Description: </label>
-                    <input type="text" name="description" class="form-control">
+                    <textarea type="text" name="description" class="form-control"></textarea>
                     
                     <label class="form-label">Thumb: </label>
-                    <input type="text" name="thumb" class="form-control">
+                    <input type="text" name="cover_img" class="form-control">
                     
                     <label class="form-label">GitHub: </label>
-                    <input type="text" name="price" class="form-control">
+                    <input type="text" name="github_link" class="form-control">
     
+                    <div class="mt-4">
+                        <button type="submit" class="btn btn-primary me-3">Add</button>
+                    </div>
                 </form>
             </div>
             <div class="buttons-containr d-flex justify-content-center">
-                <div class="mt-4">
-                    <button type="submit" class="btn btn-primary me-3">Add</button>
-                </div>
 
                 <div class="mt-4">
                    <a href="{{route("admin.projects.index")}}"><button class="btn btn-danger">Back</button></a>
