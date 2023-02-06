@@ -4,7 +4,7 @@
     <div class="container">
 
         <div>
-            <h1 class="text-center text-primary">modifica Progetto # {{$project->$id}}</h1>
+            <h1 class="text-center text-primary">modifica Progetto # {{$project->id}}</h1>
         </div>
     
         {{-- Se ci sono degli errori di validazione mostriamo un allert con questi errori --}}
@@ -22,24 +22,24 @@
         <div class="row justify-content-center">
             <div class="col-6">
     
-                <form action="{{route('admin.projects.update', $project->$id)}}" method="POST">
+                <form action="{{route('admin.projects.update', $project->id)}}" method="POST">
                     @csrf
                     @method('PUT')
         
                     <label class="form-label">Title: </label>
                     {{-- L'unica differenza che la view edit ha con la view create è che i campi devono avere, al loro interno,
                     già il valore salvato nel database, userò quindi il VALUE --}}
-                    <input type="text" name="name" class="form-control" value="{{$project->$name}}">
+                    <input type="text" name="name" class="form-control" value="{{$project->name}}">
         
                     <label class="form-label">Description: </label>
                     {{--Per le textare non c'è il VALUE ma bisogna scrivere dentro i tag--}}
-                    <textarea type="text" name="description" class="form-control">{{$project->$description}}</textarea>
+                    <textarea type="text" name="description" class="form-control">{{$project->description}}</textarea>
                     
                     <label class="form-label">Thumb: </label>
-                    <input type="text" name="cover_img" class="form-control" value="{{$project->$cover_img}}">
+                    <input type="text" name="cover_img" class="form-control" value="{{$project->cover_img}}">
                     
                     <label class="form-label">GitHub: </label>
-                    <input type="text" name="github_link" class="form-control" value="{{$project->$github_link}}">
+                    <input type="text" name="github_link" class="form-control" value="{{$project->github_link}}">
     
                 </form>
             </div>

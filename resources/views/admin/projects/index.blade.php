@@ -13,16 +13,18 @@
                     @foreach($projects as $project)
                     <div class="col">
                         <div class="card">
-                            <img src="{{$project->$cover_img}}" class="card-img-top" alt="..." style="widows: 60px">
+                            <img src="{{$project->cover_img}}" class="card-img-top" alt="..." style="widows: 60px">
                             <div class="card-body">
-                                <h5 class="card-title">{{$project->$name}}</h5>
-                                <p class="card-text">{{$project->$description}}</p>
-                                <p class="card-text">{{$project->$user_id}}</p>
-                                <p class="card-text">{{$project->$github_link}}</p>
+                                <h5 class="card-title">{{$project->name}}</h5>
+                                <p class="card-text">{{$project->description}}</p>
+                                <p class="card-text">{{$project->user_id}}</p>
+                                <p class="card-text">{{$project->github_link}}</p>
                             </div>
-                        </div>
-                        {{-- <a href="{{route('admin.projects.edit', $project->$id)}}" class="btn btn-primary">Edit</a> --}}
-                        {{-- <a href="{{route('admin.projects.show', $project->$id)}}" class="btn btn-primary">Show</a> --}}
+                            <div>
+                                <a href="{{route('admin.projects.edit', $project->id)}}" class="btn btn-primary">Edit</a>
+                                <a href="{{route('admin.projects.show', $project->id)}}" class="btn btn-primary">Show</a>
+                            </div>
+                            </div>
 
                     </div>
                     @endforeach

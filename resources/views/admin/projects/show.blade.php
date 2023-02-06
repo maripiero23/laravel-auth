@@ -5,12 +5,12 @@
     <h1 class="text-dark">Pogetto #{{ $project->id }}</h1>
 </div>
 <div class="card" style="width: 18rem;">
-    <img src="{{$project->$cover_img}}" class="card-img-top" alt="...">
+    <img src="{{$project->cover_img}}" class="card-img-top" alt="...">
     <div class="card-body">
-      <h5 class="card-title">{{$project->$name}}</h5>
-      <p class="card-text">{{$project->$description}}</p>
-      <p class="card-text">{{$project->$user_id}}</p>
-      <p class="card-text">{{$project->$github_link}}</p>
+      <h5 class="card-title">{{$project->name}}</h5>
+      <p class="card-text">{{$project->description}}</p>
+      <p class="card-text">{{$project->user_id}}</p>
+      <p class="card-text">{{$project->github_link}}</p>
 
 
       <a href="#" class="btn btn-primary">Go somewhere</a>

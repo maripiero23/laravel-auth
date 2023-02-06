@@ -75,7 +75,8 @@ class ProjectController extends Controller
     {
         $project= Project::findOrFail($id);
 
-        return view("admin.projects.edit", compact($project));
+        return view("admin.projects.edit", [
+            "project"=>$project]);
 
     }
 
@@ -87,7 +88,10 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
+    {   
+        //Scrivo uali sono i dati che voglio ricevere tramite l update
+
+
         $data = $request->all();
 
         $project= Project::findOrFail($id);
