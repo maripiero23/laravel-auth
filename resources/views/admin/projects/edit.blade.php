@@ -30,7 +30,7 @@
                     <label class="form-label">Title: </label>
                     {{-- L'unica differenza che la view edit ha con la view create è che i campi devono avere, al loro interno,
                     già il valore salvato nel database, userò quindi il VALUE --}}
-                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name', $project->name)}}">
+                    <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{$errors->has('name') ? '' :old('name')}}">
                     @error('name') {{--se ho un errore nel campo name stampami un div con la classe invalid-feedback,un messaggio con errore--}}
                     <div class="invalid-feedback">
                     {{ $message }}
@@ -39,14 +39,14 @@
         
                     <label class="form-label">Description: </label>
                     {{--Per le textare non c'è il VALUE ma bisogna scrivere dentro i tag--}}
-                    <textarea type="text" name="description" class="form-control @error('description') is-invalid @enderror">{{old('description', $project->description)}}</textarea>
+                    <textarea type="text" name="description" class="form-control @error('description') is-invalid @enderror">{{$errors->has('description') ? '' :old('description')}}</textarea>
                     
                     <label class="form-label">Thumb: </label>
                     {{--Se ho un errore nel campo name mi stampi il valore prima dell'errore se non c'è nulla da stampare mi stampi il valore che c'è nel form create--}}
-                    <input type="text" name="cover_img" class="form-control @error('cover_img') is-invalid @enderror" value="{{old('cover_img', $project->cover_img)}}">
+                    <input type="file" name="cover_img" class="form-control @error('cover_img') is-invalid @enderror" value="{{$errors->has('cover_img') ? '' :old('cover_img')}}">
                     
                     <label class="form-label">GitHub: </label>
-                    <input type="text" name="github_link" class="form-control @error('github_link') is-invalid @enderror" value="{{old('github_link', $project->github_link)}}">
+                    <input type="text" name="github_link" class="form-control @error('github_link') is-invalid @enderror" value="{{$errors->has('github_link') ? '' :old('github_link')}}">
                     @error('github_link') 
                     <div class="invalid-feedback">
                     {{ $message }}

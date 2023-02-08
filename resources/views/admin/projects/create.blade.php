@@ -20,7 +20,7 @@
         @endif
     
         <div class="row justify-content-center">
-            <div class="col-6">
+            <div class="col-6 mb-2">
     
                 <form action="{{route('admin.projects.store')}}" method="POST" enctype='multipart/form-data'>
                     @csrf
@@ -37,15 +37,15 @@
                     
                     {{-- dsecription-input --}}
                     <label class="form-label">Description: </label>
-                    <textarea type="text" name="description" class="form-control" value="">{{old('description')}}</textarea>
+                    <textarea type="text" name="description" class="form-control @error('description') is-invalid @enderror" value="">{{$errors->has('description') ? '' :old('description')}}</textarea>
                     
                     {{-- cover_img-input --}}
                     <label class="form-label">Thumb: </label>
-                    <input type="file" name="cover_img" class="form-control" value="{{old('cover_img')}}">
+                    <input type="file" name="cover_img" class="form-control @error('cover_img') is-invalid @enderror" value="{{old('cover_img')}}">
                     
                     {{-- github_link-input --}}
                     <label class="form-label">GitHub: </label>
-                    <input type="text" name="github_link" class="form-control" value="{{old('github_link')}}">
+                    <input type="text" name="github_link" class="form-control @error('github_link') is-invalid @enderror" value="{{$errors->has('github_link') ? '' :old('github_link')}}">
                     @error('github_link') 
                     <div class="invalid-feedback">
                     {{ $message }}

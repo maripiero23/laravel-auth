@@ -20,7 +20,8 @@
                                 <p class="card-text">{{$project->user_id}}</p>
                                 <p class="card-text">{{$project->github_link}}</p>
                             </div>
-                            <div>
+                            <div class="d-flex">
+                                
                                 <a href="{{route('admin.projects.edit', $project->id)}}" class="btn btn-primary"><i class="fas fa-pencil"></i>
                                 </a>
                                 <a href="{{route('admin.projects.show', $project->id)}}" class="btn btn-warning"><i class="fas fa-eye"></i>

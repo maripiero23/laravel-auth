@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class UpdateProjectRequest extends FormRequest
 {
@@ -13,6 +14,13 @@ class UpdateProjectRequest extends FormRequest
      */
     public function authorize()
     {
+         //Verifica se un utente(id) è loggato o meno
+        //Se non ho un id loggato non mi fa vedere le pagine dentro admin
+        if(!Auth::id()){
+            return false;
+        }
+
+
         return true;
     }
 

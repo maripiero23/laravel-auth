@@ -42,7 +42,7 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(StoreProjectRequest $request)
-    {   //validatedusa le validazioni/regole che ho indicato nello StoreProjectRequest
+    {   //validated usa le validazioni/regole che ho indicato nello StoreProjectRequest
         $data = $request->validated();
 
         // $data= $request->validate([
@@ -61,10 +61,8 @@ class ProjectController extends Controller
 
         //Nella tabella mi creo una nuova riga con i dati che sono appena rrivati dal creat/form
         $project= Project::create($data);
-
         //uso il path per salvare la cover_img a db
         $project->cover_img = $path;
-        
         $project->save();
 
         return redirect()->route("admin.projects.show", $project->id);

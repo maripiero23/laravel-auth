@@ -7,7 +7,7 @@
 <div class="container">
 
   <li class="media">
-    <img class="mr-3" src="{{asset('/storage/' . $project->cover_img}}" alt="Generic placeholder image">
+    <img class="mr-3" src="{{asset('/storage/' . $project->cover_img)}}" alt="Generic placeholder image">
   <div class="media-body">
     <h5 class="card-title">{{$project->name}}</h5>
     <p class="card-text">{{$project->description}}</p>
