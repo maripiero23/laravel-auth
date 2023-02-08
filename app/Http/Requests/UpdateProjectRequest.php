@@ -13,7 +13,7 @@ class UpdateProjectRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,7 +24,7 @@ class UpdateProjectRequest extends FormRequest
     public function rules()
     {
         return [
-            "title"=> "required|string|min:3",
+            "name"=> "required|string|min:3",
             "description"=> "required|string|min:10",
             "cover_img"=> "nullable|image",
             "github_link"=> "nullable|string|url"

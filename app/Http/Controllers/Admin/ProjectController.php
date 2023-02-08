@@ -7,8 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\UpdateProjectRequest;
 use Illuminate\Http\Request;
 use App\Models\Project;
-
-
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -56,8 +55,16 @@ class ProjectController extends Controller
 
         $data= $request->all();
 
+        //all'interno di public, dentro astorage creo una cartella "projectimgs", e prendo la variabile cover_img che sitrova nell'array $data
+        // e lo metto dentro alla cartella appena creaata
+        $path = Storage::put("projectimgs", $data["cover_img"]);
+
         //Nella tabella mi creo una nuova riga con i dati che sono appena rrivati dal creat/form
         $project= Project::create($data);
+
+        //uso il path per salvare la cover_img a db
+        $project->cover_img = $path;
+        
         $project->save();
 
         return redirect()->route("admin.projects.show", $project->id);

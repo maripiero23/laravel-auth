@@ -22,7 +22,7 @@
         <div class="row justify-content-center">
             <div class="col-6">
     
-                <form action="{{route('admin.projects.store')}}" method="POST">
+                <form action="{{route('admin.projects.store')}}" method="POST" enctype='multipart/form-data'>
                     @csrf
                     
                     {{-- name-input --}}
@@ -37,11 +37,11 @@
                     
                     {{-- dsecription-input --}}
                     <label class="form-label">Description: </label>
-                    <textarea type="text" name="description" class="form-control" value="{{old('description')}}"></textarea>
+                    <textarea type="text" name="description" class="form-control" value="">{{old('description')}}</textarea>
                     
                     {{-- cover_img-input --}}
                     <label class="form-label">Thumb: </label>
-                    <input type="text" name="cover_img" class="form-control" value="{{old('cover_img')}}">
+                    <input type="file" name="cover_img" class="form-control" value="{{old('cover_img')}}">
                     
                     {{-- github_link-input --}}
                     <label class="form-label">GitHub: </label>

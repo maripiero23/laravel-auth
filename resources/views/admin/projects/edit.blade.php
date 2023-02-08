@@ -19,10 +19,11 @@
         </div>
         @endif
     
+        <h1> Ciao</h1>
         <div class="row justify-content-center">
             <div class="col-6">
     
-                <form action="{{route('admin.projects.update', $project->id)}}" method="POST" enctype='multipart/form-data>
+                <form action="{{route('admin.projects.update', $project->id)}}" method="POST" enctype='multipart/form-data'>
                     @csrf
                     @method('PUT')
         

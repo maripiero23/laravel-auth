@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Support\Facades\Auth;
 
 class StoreProjectRequest extends FormRequest
 {
@@ -12,8 +13,15 @@ class StoreProjectRequest extends FormRequest
      * @return bool
      */
     public function authorize()
-    {
-        return false;
+    {   
+         //Verifica se un utente(id) è loggato o meno
+        //Se non ho un id loggato non mi fa vedere le pagine dentro admin
+        if(!Auth::id()){
+            return false;
+        }
+
+
+        return true;
     }
 
     /**
@@ -24,7 +32,7 @@ class StoreProjectRequest extends FormRequest
     public function rules()
     {
         return [
-            "title"=> "required|string|min:3",
+            "name"=> "required|string|min:3",
             "description"=> "required|string|min:10",
             "cover_img"=> "nullable|image",
             "github_link"=> "nullable|string|url"
