@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Http\Requests\StoreProjectRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UpdateProjectRequest;
 use Illuminate\Http\Request;
 use App\Models\Project;
 
@@ -40,8 +42,18 @@ class ProjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(StoreProjectRequest $request)
+    {   //validatedusa le validazioni/regole che ho indicato nello StoreProjectRequest
+        $data = $request->validated();
+
+        // $data= $request->validate([
+        //     "title"=> "required|string|min:3",
+        //     "description"=> "required|string|min:10",
+        //     "cover_img"=> "nullable|image",
+        //     "github_link"=> "nullable|string|url"
+        // ]);
+
+
         $data= $request->all();
 
         //Nella tabella mi creo una nuova riga con i dati che sono appena rrivati dal creat/form
@@ -87,11 +99,21 @@ class ProjectController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(UpdateProjectRequest $request, $id)
     {   
-        //Scrivo uali sono i dati che voglio ricevere tramite l update
+        //validatedusa le validazioni/regole che ho indicato nello StoreProjectRequest
+        $data = $request->validated();
 
 
+        // $data= $request->validate([
+        //     "title"=> "required|string|min:3",
+        //     "description"=> "required|string|min:10",
+        //     "cover_img"=> "nullable|image",
+        //     "github_link"=> "nullable|string|url"
+
+        // ]);
+        
+        //Scrivo quali sono i dati che voglio ricevere tramite l update
         $data = $request->all();
 
         $project= Project::findOrFail($id);
