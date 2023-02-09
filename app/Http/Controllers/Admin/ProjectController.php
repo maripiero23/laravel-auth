@@ -125,13 +125,29 @@ class ProjectController extends Controller
 
         $project->update($data);
 
+        
+        // carico il file solo se ne ricevo uno
+        if (key_exists("cover_img", $data)) {
+            // salvo in una variabile temporanea il percorso del nuovo file
+            $path = Storage::put("projectimgs", $data["cover_img"]);
+            // Dopo aver caricato la nuova immagine, prima di aggiornare il db,
+            // cancelliamo dallo storage il vecchio file.
+            Storage::delete($project->cover_img);
+
+            $project->cover_img = $path;
+        }
+
+        $project->save();
+
+        
+
         return redirect()->route("admin.projects.show",$project->id);
 
 
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified resource from storage.projectimgs
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
